@@ -31,10 +31,10 @@ const runBatchJob = async () => {
     }
 };
 
-// Schedule the batch job to run every day at midnight
-cron.schedule('0 0 * * *', () => {
+
+// Schedule the batch job to run every 10 seconds
+cron.schedule('*/10 * * * * *', () => {
     logger.info('Batch job started.');
     runBatchJob();
 });
-
 logger.info(`Batch job scheduler started on env key ${apiKey}. Waiting for the next run...`);
